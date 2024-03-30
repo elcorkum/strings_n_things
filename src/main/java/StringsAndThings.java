@@ -75,8 +75,17 @@ public class StringsAndThings {
      *           gHappy("xxgxx") // Should return  false
      *           gHappy("xxggyygxx") // Should return  false
      */
-    public Boolean gIsHappy(String input){
-        return null;
+    public static boolean gIsHappy(String input){
+
+        boolean gIsHappy = true;
+        for(int i = 0; i < input.length(); i++) {
+            if(input.charAt(i) == 'g'){
+                if ((i+1 < input.length() && input.charAt(i+1) == 'g') || input.charAt(i-1) == 'g') {
+                    gIsHappy = true;
+                } else {gIsHappy = false;}
+            }
+        }
+        return gIsHappy;
     }
 
 
@@ -87,8 +96,15 @@ public class StringsAndThings {
      *            countTriple("xxxabyyyycd") // Should return 3
      *            countTriple("a") // Should return 0
      */
-    public Integer countTriple(String input){
-        return null;
+    public static int countTriple(String input){
+        int countOfTriples = 0;
+        for (int i = 1; i < input.length(); i++) {
+            if(input.charAt(i) == input.charAt(i-1) && (i+1 < input.length() && input.charAt(i) == input.charAt(i+1))) {
+                countOfTriples++;
+            }
+
+        }
+        return countOfTriples;
     }
 
 
@@ -105,6 +121,15 @@ public class StringsAndThings {
         System.out.println(containsEqualNumberOfIsAndNot("This is notnot"));
         System.out.println(containsEqualNumberOfIsAndNot("This is not"));
         System.out.println(containsEqualNumberOfIsAndNot("noisxxnotyynotxisi"));
+
+        System.out.println(gIsHappy("xxggxx"));
+        System.out.println(gIsHappy("xxggxxgg"));
+        System.out.println(gIsHappy("xxggyygxx"));
+
+
+        System.out.println(countTriple("abcXXXabc"));
+        System.out.println(countTriple("xxxabyyyycd"));
+        System.out.println(countTriple("a"));
 
 
 
